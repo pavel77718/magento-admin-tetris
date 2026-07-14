@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="PB_AdminTetris::tetris"
+             title="Tetris"
+             module="PB_AdminTetris"
+             sortOrder="999"
+             parent="Magento_Backend::content"
+             action="pb_tetris/game/index"
+             resource="PB_AdminTetris::tetris"/>
+    </menu>
+</config>
