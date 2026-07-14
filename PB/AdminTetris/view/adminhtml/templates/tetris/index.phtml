@@ -2,29 +2,29 @@
 /** @var \Magento\Backend\Block\Template $block */
 ?>
 
-<div class="perspective-tetris" id="perspective-tetris">
-    <div class="perspective-tetris__panel">
+<div class="pb-tetris" id="pb-tetris">
+    <div class="pb-tetris__panel">
         <div>
-            <h1 class="perspective-tetris__title"><?= $block->escapeHtml(__('Admin Tetris')) ?></h1>
-            <p class="perspective-tetris__subtitle">
+            <h1 class="pb-tetris__title"><?= $block->escapeHtml(__('Admin Tetris')) ?></h1>
+            <p class="pb-tetris__subtitle">
                 <?= $block->escapeHtml(__('Управление: A/D или ←/→ — движение, W или ↑ — поворот, S или ↓ — ускорить падение, Space — сбросить вниз, P — пауза.')) ?>
             </p>
         </div>
-        <div class="perspective-tetris__stats" aria-live="polite">
+        <div class="pb-tetris__stats" aria-live="polite">
             <div><span><?= $block->escapeHtml(__('Score')) ?></span><strong data-tetris-score>0</strong></div>
             <div><span><?= $block->escapeHtml(__('Lines')) ?></span><strong data-tetris-lines>0</strong></div>
             <div><span><?= $block->escapeHtml(__('Level')) ?></span><strong data-tetris-level>1</strong></div>
         </div>
     </div>
 
-    <div class="perspective-tetris__game-wrap">
-        <canvas class="perspective-tetris__board" width="300" height="600" data-tetris-board tabindex="0"></canvas>
-        <div class="perspective-tetris__side">
-            <div class="perspective-tetris__card">
+    <div class="pb-tetris__game-wrap">
+        <canvas class="pb-tetris__board" width="300" height="600" data-tetris-board tabindex="0"></canvas>
+        <div class="pb-tetris__side">
+            <div class="pb-tetris__card">
                 <h2><?= $block->escapeHtml(__('Next')) ?></h2>
                 <canvas width="120" height="120" data-tetris-next></canvas>
             </div>
-            <div class="perspective-tetris__card perspective-tetris__controls">
+            <div class="pb-tetris__card pb-tetris__controls">
                 <h2><?= $block->escapeHtml(__('Controls')) ?></h2>
                 <p><kbd>A</kbd>/<kbd>←</kbd> <?= $block->escapeHtml(__('Left')) ?></p>
                 <p><kbd>D</kbd>/<kbd>→</kbd> <?= $block->escapeHtml(__('Right')) ?></p>
@@ -33,20 +33,20 @@
                 <p><kbd>Space</kbd> <?= $block->escapeHtml(__('Hard drop')) ?></p>
                 <p><kbd>P</kbd> <?= $block->escapeHtml(__('Pause')) ?></p>
             </div>
-            <button class="action-primary perspective-tetris__button" type="button" data-tetris-start>
+            <button class="action-primary pb-tetris__button" type="button" data-tetris-start>
                 <?= $block->escapeHtml(__('Start / Restart')) ?>
             </button>
         </div>
     </div>
 
-    <div class="perspective-tetris__overlay" data-tetris-overlay>
+    <div class="pb-tetris__overlay" data-tetris-overlay>
         <strong><?= $block->escapeHtml(__('Press Start')) ?></strong>
         <span><?= $block->escapeHtml(__('Кликни по полю или нажми кнопку и погнали.')) ?></span>
     </div>
 </div>
 
 <style>
-    .perspective-tetris {
+    .pb-tetris {
         --tetris-bg: #111827;
         --tetris-panel: #1f2937;
         --tetris-border: #374151;
@@ -61,55 +61,55 @@
         box-shadow: 0 20px 45px rgba(15, 23, 42, .28);
     }
 
-    .perspective-tetris__panel,
-    .perspective-tetris__game-wrap,
-    .perspective-tetris__stats {
+    .pb-tetris__panel,
+    .pb-tetris__game-wrap,
+    .pb-tetris__stats {
         display: flex;
         gap: 18px;
     }
 
-    .perspective-tetris__panel {
+    .pb-tetris__panel {
         align-items: flex-start;
         justify-content: space-between;
         margin-bottom: 20px;
     }
 
-    .perspective-tetris__title {
+    .pb-tetris__title {
         margin: 0 0 8px;
         color: var(--tetris-text);
         font-size: 32px;
         font-weight: 800;
     }
 
-    .perspective-tetris__subtitle {
+    .pb-tetris__subtitle {
         max-width: 430px;
         margin: 0;
         color: var(--tetris-muted);
         line-height: 1.45;
     }
 
-    .perspective-tetris__stats > div,
-    .perspective-tetris__card {
+    .pb-tetris__stats > div,
+    .pb-tetris__card {
         padding: 14px;
         border: 1px solid var(--tetris-border);
         border-radius: 14px;
         background: rgba(31, 41, 55, .86);
     }
 
-    .perspective-tetris__stats span {
+    .pb-tetris__stats span {
         display: block;
         color: var(--tetris-muted);
         font-size: 12px;
         text-transform: uppercase;
     }
 
-    .perspective-tetris__stats strong {
+    .pb-tetris__stats strong {
         display: block;
         margin-top: 4px;
         font-size: 24px;
     }
 
-    .perspective-tetris__board,
+    .pb-tetris__board,
     [data-tetris-next] {
         display: block;
         border: 2px solid #64748b;
@@ -118,30 +118,30 @@
         outline: none;
     }
 
-    .perspective-tetris__board:focus {
+    .pb-tetris__board:focus {
         box-shadow: 0 0 0 4px rgba(96, 165, 250, .35);
     }
 
-    .perspective-tetris__side {
+    .pb-tetris__side {
         width: 210px;
     }
 
-    .perspective-tetris__card {
+    .pb-tetris__card {
         margin-bottom: 16px;
     }
 
-    .perspective-tetris__card h2 {
+    .pb-tetris__card h2 {
         margin: 0 0 12px;
         color: var(--tetris-text);
         font-size: 18px;
     }
 
-    .perspective-tetris__controls p {
+    .pb-tetris__controls p {
         margin: 8px 0;
         color: var(--tetris-muted);
     }
 
-    .perspective-tetris kbd {
+    .pb-tetris kbd {
         display: inline-block;
         min-width: 22px;
         padding: 2px 6px;
@@ -153,12 +153,12 @@
         text-align: center;
     }
 
-    .perspective-tetris__button {
+    .pb-tetris__button {
         width: 100%;
         border-radius: 10px;
     }
 
-    .perspective-tetris__overlay {
+    .pb-tetris__overlay {
         position: absolute;
         left: 24px;
         top: 146px;
@@ -175,16 +175,16 @@
         pointer-events: none;
     }
 
-    .perspective-tetris__overlay strong {
+    .pb-tetris__overlay strong {
         font-size: 30px;
     }
 
-    .perspective-tetris__overlay span {
+    .pb-tetris__overlay span {
         margin-top: 8px;
         color: var(--tetris-muted);
     }
 
-    .perspective-tetris__overlay.is-hidden {
+    .pb-tetris__overlay.is-hidden {
         display: none;
     }
 </style>
@@ -193,7 +193,7 @@
 require(['jquery', 'domReady!'], function ($) {
     'use strict';
 
-    var root = document.getElementById('perspective-tetris');
+    var root = document.getElementById('pb-tetris');
     var canvas = root.querySelector('[data-tetris-board]');
     var context = canvas.getContext('2d');
     var nextCanvas = root.querySelector('[data-tetris-next]');
@@ -534,7 +534,7 @@ require(['jquery', 'domReady!'], function ($) {
         drawBoard();
     }
 
-    $(document).on('keydown.perspectiveTetris', handleKey);
+    $(document).on('keydown.pbTetris', handleKey);
     startButton.addEventListener('click', resetGame);
     canvas.addEventListener('click', function () {
         canvas.focus();
